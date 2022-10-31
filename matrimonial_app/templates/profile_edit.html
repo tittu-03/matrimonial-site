@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1449a683db.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+    <style>
+        body{
+    margin-top:20px;
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+<div class="container">
+    <div class="main-body">
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            {% for i in profile %}
+                            <h6 class="mb-0">Name</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" name="name" id="form2Example17" value="{{i.name}}"
+                                   class="form-control form-control-lg"/>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" name="email" id="form2Example171" value="{{i.user.username}}"
+                                   class="form-control form-control-lg"/>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Phone</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" name="phone" id="form2Example172" value="{{i.phone}}"
+                                   class="form-control form-control-lg"/>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Date Of Birth</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="date" name="dob" id="form2Example173" value="{{i.dob}}"
+                                   class="form-control form-control-lg"/>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Bio</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" name="bio" id="form2Example174" value="{{i.bio}}"
+                                   class="form-control form-control-lg"/>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Gender</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary" >
+                            <select class="form-select" aria-label="Default select example" name="gender">
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                                <option value="others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Occupation</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" name="occupation" id="form2Example176" value="{{i.occupation}}"
+                                   class="form-control form-control-lg"/>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Interested</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <select class="form-select" aria-label="Default select example" name="looking_for">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="transgender">Transgender</option>
+                            </select>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Image</h6>
+                        </div>
+                        {% for j in x %}
+                        <div class="col-sm-9 text-secondary">
+                            <input type="file" name="image" id="form2Example178"
+                                   class="form-control form-control-lg"/>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button class="btn btn-outline-danger" type="submit">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+</div>
+</form>
+</body>
+</html>

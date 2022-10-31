@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1449a683db.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <style>
+        body{
+    margin-top:20px;
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="main-body">
+
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    {% for j in z %}
+                    <img  src="{% static j %}" alt="Admin" class="rounded-circle" width="150">
+                    {% endfor %}
+                    <div class="mt-3">
+                      {% for i in profile %}
+                      <h4>{{i.name}}</h4>
+                      <p class="text-muted font-size-sm">{{i.bio}}</p>
+                      <a href="/edit_profile/{{i.auth_token}}/{{i.user.username}}" class="btn btn-outline-primary">Edit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{i.name}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{i.user.username}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{i.phone}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Date Of Birth</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{i.dob}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Bio</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{i.bio}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Gender</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Male
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Occupation</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{i.occupation}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Interested</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{i.looking_for}}
+                    </div>
+                  </div>
+                  <hr>
+
+                  {% endfor %}
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+    </div>
+</body>
+</html>
